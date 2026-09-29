@@ -2,6 +2,10 @@
 
 A tool that detects structural similarity between two source code files — resistant to variable renaming, reformatting, and comment changes. Built to demonstrate real plagiarism-detection techniques, not a wrapper around an existing library.
 
+## Why I built this
+
+I wanted a project that was genuinely algorithmic rather than another CRUD app or a thin wrapper around an API. Plagiarism/similarity detection was a good fit because the real challenge isn't calling a library — it's designing the detection logic yourself: how do you compare two pieces of code fairly when someone might rename every variable to avoid getting caught? Working through tokenization, k-gram fingerprinting, and winnowing gave me a much better grip on
+
 ## How it works
 
 1. **Tokenization** — source code is broken into normalized tokens. Variable and function names become `VAR`, numbers become `NUM`, strings become `STR`, while keywords (`if`, `for`, `def`...) and operators are preserved. This means two functions that are logically identical but use different variable names produce identical token sequences.
@@ -30,6 +34,11 @@ A tool that detects structural similarity between two source code files — resi
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | /compare | Upload two files, returns similarity score, fingerprints, and matched line numbers |
+
+## Screenshots
+
+### Comparing two files
+![Similarity check](screenshot/Similarity_Check.png)
 
 ## Known limitations
 - Tokenizer currently targets Python syntax specifically
