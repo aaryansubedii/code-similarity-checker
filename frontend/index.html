@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Similarity Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>&lt;/&gt; Code Similarity Checker</h1>
+    <p>Detects structural similarity between code files — resistant to variable renaming and formatting changes.</p>
+</header>
+
+<div class="upload-bar">
+    <label class="drop-zone" id="drop1">
+        <span id="label1">Drop or click to select File 1</span>
+        <input type="file" id="file1" accept=".py,.js,.java,.txt" hidden>
+    </label>
+
+    <button id="compare-btn" disabled>Compare</button>
+
+    <label class="drop-zone" id="drop2">
+        <span id="label2">Drop or click to select File 2</span>
+        <input type="file" id="file2" accept=".py,.js,.java,.txt" hidden>
+    </label>
+</div>
+
+<div id="score-panel" class="hidden">
+    <div class="gauge">
+        <svg viewBox="0 0 100 100">
+            <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+            <circle class="gauge-fill" id="gauge-fill" cx="50" cy="50" r="45"></circle>
+        </svg>
+        <div class="gauge-text" id="gauge-text">0%</div>
+    </div>
+    <div class="stats" id="stats"></div>
+</div>
+
+<div class="panes hidden" id="panes">
+    <pre class="pane" id="pane1"></pre>
+    <pre class="pane" id="pane2"></pre>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
