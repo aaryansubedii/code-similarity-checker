@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:8000/compare";
+const API = "/compare";
 
 let file1 = null;
 let file2 = null;

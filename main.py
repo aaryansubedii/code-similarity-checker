@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from similarity import compute_similarity
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -26,6 +27,4 @@ async def compare_files(file1: UploadFile = File(...), file2: UploadFile = File(
     return result
 
 
-@app.get("/")
-def root():
-    return {"message": "Code Similarity Checker API is running"}
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
